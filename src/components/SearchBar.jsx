@@ -24,9 +24,7 @@ const SearchBar = ({ searchData, setSearchData }) => {
           className="flex-1 border border-gray-300 rounded-xl p-3 outline-none"
         />
 
-        <input
-          type="text"
-          placeholder="Category"
+        <select
           value={searchData.category}
           onChange={(e) =>
             setSearchData({
@@ -35,8 +33,15 @@ const SearchBar = ({ searchData, setSearchData }) => {
             })
           }
           className="flex-1 border border-gray-300 rounded-xl p-3 outline-none"
-        />
-
+        >
+          <option value="">All Categories</option>
+          <option value="software">Software Development</option>
+          <option value="Information Technology">Information Technology</option>
+          <option value="marketing">Marketing</option>
+          <option value="Customer Service">Customer Service</option>
+          <option value="sales">Sales</option>
+          <option value="writing">Writing</option>
+        </select>
         <input
           type="text"
           placeholder="Location"

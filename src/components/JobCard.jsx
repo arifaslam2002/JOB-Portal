@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const JobCard = ({ job }) => {
+const JobCard = ({ job, onSave, isSaved }) => {
   const navigate = useNavigate();
 
   const handleViewJob = () => {
@@ -21,12 +21,18 @@ const JobCard = ({ job }) => {
 
       <p className="text-gray-600 mb-5">📍 {job.candidate_required_location}</p>
 
-      <button
+      <div className="flex justify-between" ><button
         onClick={handleViewJob}
         className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
       >
         View Job
       </button>
+      <button
+        onClick={() => onSave(job)}
+        className="bg-yellow-500 text-white px-5 py-2 rounded-lg"
+      >
+        {isSaved ? "⭐ Saved" : "☆ Save Job"}
+      </button></div>
     </div>
   );
 };
