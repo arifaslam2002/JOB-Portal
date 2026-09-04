@@ -1,7 +1,13 @@
+import Navbar from "./components/Navbar"
+import SearchBar from "./components/SearchBar"
+import Home from "./pages/Home"
 
 const App = () => {
   return (
-    <div>Job App</div>
+    <div><Navbar />
+    <SearchBar />
+    <Home />
+    </div>
   )
 }
 
