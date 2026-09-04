@@ -1,15 +1,7 @@
-import { useState } from "react";
-
-const SearchBar = () => {
-  const [formData, setFormData] = useState({
-    search: "",
-    category: "",
-    location: "",
-  });
-
+const SearchBar = ({ searchData, setSearchData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log(searchData);
   };
 
   return (
@@ -22,34 +14,45 @@ const SearchBar = () => {
         <input
           type="text"
           placeholder="Search for jobs..."
-          value={formData.search}
-          onChange={(e) => setFormData({ ...formData, search: e.target.value })}
-          className="flex-1 border border-gray-300 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-400"
+          value={searchData.search}
+          onChange={(e) =>
+            setSearchData({
+              ...searchData,
+              search: e.target.value,
+            })
+          }
+          className="flex-1 border border-gray-300 rounded-xl p-3 outline-none"
         />
 
         <input
           type="text"
           placeholder="Category"
-          value={formData.category}
+          value={searchData.category}
           onChange={(e) =>
-            setFormData({ ...formData, category: e.target.value })
+            setSearchData({
+              ...searchData,
+              category: e.target.value,
+            })
           }
-          className="flex-1 border border-gray-300 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-400"
+          className="flex-1 border border-gray-300 rounded-xl p-3 outline-none"
         />
 
         <input
           type="text"
           placeholder="Location"
-          value={formData.location}
+          value={searchData.location}
           onChange={(e) =>
-            setFormData({ ...formData, location: e.target.value })
+            setSearchData({
+              ...searchData,
+              location: e.target.value,
+            })
           }
-          className="flex-1 border border-gray-300 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-400"
+          className="flex-1 border border-gray-300 rounded-xl p-3 outline-none"
         />
 
         <button
           type="submit"
-          className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-700 transition"
+          className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-700"
         >
           Search
         </button>
