@@ -1,14 +1,13 @@
-import Navbar from "./components/Navbar"
-import SearchBar from "./components/SearchBar"
-import Home from "./pages/Home"
-
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import JobDetails from "./pages/JobDetails";
 const App = () => {
   return (
-    <div><Navbar />
-    <SearchBar />
-    <Home />
-    </div>
-  )
-}
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/jobs/:id" element={<JobDetails />} />
+    </Routes>
+  );
+};
 
-export default App
+export default App;
